@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "com.github.mahmudindev.mcmod.elytraportalfix.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "minVersion": "0.8",
+  "client": [
+  ],
+  "mixins": [
+    "PlayerHMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
