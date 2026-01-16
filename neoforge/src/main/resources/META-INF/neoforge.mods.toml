@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[47,)"
+loaderVersion = "[4,)"
 issueTrackerURL = "https://github.com/mahmudindev/mcmod-elytraportalfix/issues"
 license = "ARR"
 
@@ -14,15 +14,18 @@ Fix player cannot use portal while flying with elytra.
 logoFile = "assets/elytraportalfix/icon.png"
 
 [[dependencies.elytraportalfix]]
-modId = "forge"
-mandatory = true
-versionRange = "[47,)"
+modId = "neoforge"
+type = "required"
+versionRange = "[21.0,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.elytraportalfix]]
 modId = "minecraft"
-mandatory = true
-versionRange = "[1.20.1,)"
+type = "required"
+versionRange = "[1.21,)"
 ordering = "NONE"
 side = "BOTH"
+
+[[mixins]]
+config = "elytraportalfix.mixins.json"

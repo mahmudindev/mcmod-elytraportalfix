@@ -1,12 +1,12 @@
 {
   "required": true,
   "package": "com.github.mahmudindev.mcmod.elytraportalfix.mixin",
-  "compatibilityLevel": "JAVA_17",
+  "compatibilityLevel": "JAVA_21",
   "minVersion": "0.8",
   "client": [
   ],
   "mixins": [
-    "PlayerHMixin"
+    "NetherPortalBlockHMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -3,8 +3,8 @@ package com.github.mahmudindev.mcmod.elytraportalfix.core;
 import net.minecraft.world.level.GameRules;
 
 public class CustomGameRules {
-    public static final GameRules.Key<GameRules.IntegerValue> ELYTRA_FLY_PORTAL_WAIT_TICK = register(
-            "elytraFlyPortalWaitTick",
+    public static final GameRules.Key<GameRules.IntegerValue> RULE_ELYTRA_FLYING_PORTAL_DELAY = register(
+            "elytraFlyingPortalDelay",
             GameRules.Category.MISC,
             GameRules.IntegerValue.create(0)
     );
