@@ -10,7 +10,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.GameRules;
+import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.block.NetherPortalBlock;
 import org.spongepowered.asm.mixin.Mixin;
 
@@ -31,7 +31,7 @@ public abstract class NetherPortalBlockHMixin {
             )) {
                 GameRules gameRules = serverLevel.getGameRules();
 
-                return gameRules.getInt(CustomGameRules.RULE_ELYTRA_FLYING_PORTAL_DELAY);
+                return gameRules.get(CustomGameRules.ELYTRA_FLYING_PORTAL_DELAY);
             }
         }
 

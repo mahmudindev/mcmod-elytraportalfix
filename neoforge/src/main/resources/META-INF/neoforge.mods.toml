@@ -16,14 +16,14 @@ logoFile = "assets/elytraportalfix/icon.png"
 [[dependencies.elytraportalfix]]
 modId = "neoforge"
 type = "required"
-versionRange = "[21.2,)"
+versionRange = "[21.11,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.elytraportalfix]]
 modId = "minecraft"
 type = "required"
-versionRange = "[1.21.2,)"
+versionRange = "[1.21.11,)"
 ordering = "NONE"
 side = "BOTH"
 

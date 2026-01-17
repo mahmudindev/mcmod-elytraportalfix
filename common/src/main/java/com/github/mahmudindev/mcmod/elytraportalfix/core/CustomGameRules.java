@@ -1,20 +1,48 @@
 package com.github.mahmudindev.mcmod.elytraportalfix.core;
 
-import net.minecraft.world.level.GameRules;
+import com.mojang.brigadier.arguments.ArgumentType;
+import com.mojang.brigadier.arguments.IntegerArgumentType;
+import com.mojang.serialization.Codec;
+import net.minecraft.world.flag.FeatureFlagSet;
+import net.minecraft.world.level.gamerules.*;
+
+import java.util.function.ToIntFunction;
 
 public class CustomGameRules {
-    public static final GameRules.Key<GameRules.IntegerValue> RULE_ELYTRA_FLYING_PORTAL_DELAY = register(
-            "elytraFlyingPortalDelay",
-            GameRules.Category.MISC,
-            GameRules.IntegerValue.create(0)
+    public static final GameRule<Integer> ELYTRA_FLYING_PORTAL_DELAY = register(
+            "elytra_flying_portal_delay",
+            GameRuleCategory.MISC,
+            GameRuleType.INT,
+            IntegerArgumentType.integer(0, Integer.MAX_VALUE),
+            Codec.intRange(0, Integer.MAX_VALUE),
+            0,
+            FeatureFlagSet.of(),
+            GameRuleTypeVisitor::visitInteger,
+            value -> value
     );
 
-    private static <T extends GameRules.Value<T>> GameRules.Key<T> register(
+    private static <T> GameRule<T> register(
             String name,
-            GameRules.Category category,
-            GameRules.Type<T> type
+            GameRuleCategory gameRuleCategory,
+            GameRuleType gameRuleType,
+            ArgumentType<T> argumentType,
+            Codec<T> codec,
+            T object,
+            FeatureFlagSet featureFlagSet,
+            GameRules.VisitorCaller<T> visitorCaller,
+            ToIntFunction<T> toIntFunction
     ) {
-        return GameRules.register(name, category, type);
+        return GameRules.register(
+                name,
+                gameRuleCategory,
+                gameRuleType,
+                argumentType,
+                codec,
+                object,
+                featureFlagSet,
+                visitorCaller,
+                toIntFunction
+        );
     }
 
     public static void bootstrap() {}
