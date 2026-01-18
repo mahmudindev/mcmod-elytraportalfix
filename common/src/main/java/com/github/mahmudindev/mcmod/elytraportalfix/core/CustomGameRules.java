@@ -1,15 +1,19 @@
 package com.github.mahmudindev.mcmod.elytraportalfix.core;
 
+import com.github.mahmudindev.mcmod.elytraportalfix.ElytraPortalFixExpectPlatform;
 import com.mojang.brigadier.arguments.ArgumentType;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.serialization.Codec;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.level.gamerules.*;
 
+import java.util.function.Supplier;
 import java.util.function.ToIntFunction;
 
 public class CustomGameRules {
-    public static final GameRule<Integer> ELYTRA_FLYING_PORTAL_DELAY = register(
+    public static final Supplier<GameRule<Integer>> ELYTRA_FLYING_PORTAL_DELAY = register(
             "elytra_flying_portal_delay",
             GameRuleCategory.MISC,
             GameRuleType.INT,
@@ -21,7 +25,7 @@ public class CustomGameRules {
             value -> value
     );
 
-    private static <T> GameRule<T> register(
+    private static <T> Supplier<GameRule<T>> register(
             String name,
             GameRuleCategory gameRuleCategory,
             GameRuleType gameRuleType,
@@ -32,16 +36,19 @@ public class CustomGameRules {
             GameRules.VisitorCaller<T> visitorCaller,
             ToIntFunction<T> toIntFunction
     ) {
-        return GameRules.register(
-                name,
-                gameRuleCategory,
-                gameRuleType,
-                argumentType,
-                codec,
-                object,
-                featureFlagSet,
-                visitorCaller,
-                toIntFunction
+        return ElytraPortalFixExpectPlatform.registerRegistryEntry(
+                BuiltInRegistries.GAME_RULE.key(),
+                Identifier.parse(name),
+                () -> new GameRule<>(
+                        gameRuleCategory,
+                        gameRuleType,
+                        argumentType,
+                        visitorCaller,
+                        codec,
+                        toIntFunction,
+                        object,
+                        featureFlagSet
+                )
         );
     }
 

@@ -31,7 +31,7 @@ public abstract class NetherPortalBlockHMixin {
             )) {
                 GameRules gameRules = serverLevel.getGameRules();
 
-                return gameRules.get(CustomGameRules.ELYTRA_FLYING_PORTAL_DELAY);
+                return gameRules.get(CustomGameRules.ELYTRA_FLYING_PORTAL_DELAY.get());
             }
         }
 
