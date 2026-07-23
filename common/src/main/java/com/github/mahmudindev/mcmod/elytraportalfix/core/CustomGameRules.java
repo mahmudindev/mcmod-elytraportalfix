@@ -1,6 +1,6 @@
 package com.github.mahmudindev.mcmod.elytraportalfix.core;
 
-import com.github.mahmudindev.mcmod.elytraportalfix.ElytraPortalFixExpectPlatform;
+import com.github.mahmudindev.mcmod.elytraportalfix.ElytraPortalFix;
 import com.mojang.brigadier.arguments.ArgumentType;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.serialization.Codec;
@@ -36,7 +36,7 @@ public class CustomGameRules {
             GameRules.VisitorCaller<T> visitorCaller,
             ToIntFunction<T> toIntFunction
     ) {
-        return ElytraPortalFixExpectPlatform.registerRegistryEntry(
+        return ElytraPortalFix.PLATFORM.registerRegistryEntry(
                 BuiltInRegistries.GAME_RULE.key(),
                 Identifier.parse(name),
                 () -> new GameRule<>(

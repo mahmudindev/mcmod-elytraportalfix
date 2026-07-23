@@ -1,31 +1,31 @@
 modLoader = "javafml"
-loaderVersion = "[4,)"
+loaderVersion = "${neoforge_loader_version_range}"
 issueTrackerURL = "https://github.com/mahmudindev/mcmod-elytraportalfix/issues"
-license = "ARR"
+license = "${mod_license}"
 
 [[mods]]
-modId = "elytraportalfix"
+modId = "${mod_id}"
 version = "${version}"
-displayName = "Elytra Portal Fix"
-authors = "mahmudindev"
+displayName = "${mod_name}"
+authors = "${mod_authors}"
 description = '''
-Fix player cannot use portal while flying with elytra.
+${description}
 '''
-logoFile = "assets/elytraportalfix/icon.png"
+logoFile = "assets/${mod_id}/icon.png"
 
-[[dependencies.elytraportalfix]]
+[[dependencies.${mod_id}]]
 modId = "neoforge"
 type = "required"
-versionRange = "[21.11,)"
+versionRange = "${neoforge_version_range}"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.elytraportalfix]]
+[[dependencies.${mod_id}]]
 modId = "minecraft"
 type = "required"
-versionRange = "[1.21.11,)"
+versionRange = "[${minecraft_version},)"
 ordering = "NONE"
 side = "BOTH"
 
 [[mixins]]
-config = "elytraportalfix.mixins.json"
+config = "${mod_id}.mixins.json"

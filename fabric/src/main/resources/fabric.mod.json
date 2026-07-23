@@ -1,18 +1,16 @@
 {
   "schemaVersion": 1,
-  "id": "elytraportalfix",
+  "id": "${mod_id}",
   "version": "${version}",
-  "name": "Elytra Portal Fix",
-  "description": "Fix player cannot use portal while flying with elytra.",
-  "authors": [
-    "mahmudindev"
-  ],
+  "name": "${mod_name}",
+  "description": "${description}",
+  "authors": [ "${mod_authors_list}" ],
   "contact": {
     "homepage": "https://github.com/mahmudindev",
     "sources": "https://github.com/mahmudindev/mcmod-passengersportalfix"
   },
-  "license": "ARR",
-  "icon": "assets/elytraportalfix/icon.png",
+  "license": "${mod_license}",
+  "icon": "assets/${mod_id}/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
@@ -22,14 +20,13 @@
       "com.github.mahmudindev.mcmod.elytraportalfix.fabric.client.ElytraPortalFixFabricClient"
     ]
   },
-  "accessWidener": "elytraportalfix.accesswidener",
   "mixins": [
-    "elytraportalfix.mixins.json"
+    "${mod_id}.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.18.4",
-    "minecraft": "~1.21.11",
-    "java": ">=21"
+    "fabricloader": ">=${fabric_loader_version}",
+    "minecraft": ">=${minecraft_version}",
+    "java": ">=${java_version}"
   },
   "suggests": {
     "fabric-api": "*"
